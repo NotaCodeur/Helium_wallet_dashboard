@@ -668,19 +668,19 @@ const { data: transactionsData } = useGetHeliumTransactionHashQuery(hash, {skip:
         </Col>
         
         <Col xs={24} sm={24} lg={24} type="flex" align="middle">
-          <div style={{padding: 5}}>
+          <div style={{padding: 0}}>
             <Card style={cardStyle}>
               <div style={{ background: '#ffffff', borderRadius: 20, margin: 5, padding: 0, width: '95%' }}>
                 <Collapse ghost>
                   <Panel header={`transactions:  ${(accountObj.accountRolesCount?.data?.payment_v2 + accountObj.accountRolesCount?.data?.payment_v1)} `} extra='filter'>
                     {accountObj.transactions.paymentTransactions.map((transaction) => 
-                      <Card>
+                      <Card style={{borderRadius: 10, paddingBottom: 5}}> 
                         <Collapse ghost>
                           <Panel header={transaction.data?.payments[0]?.amount} extra={transaction?.data?.payments[0]?.payee}>
-                            <Row>
-                            <p>fee: {transaction.data?.fee}</p>
-                            <p>fee: {transaction.data?.time}</p>
-                            <p>fee: {transaction.data?.payer}</p>
+                            <Row justify="space-between">
+                            <Col>fee: {transaction.data?.fee}</Col>
+                            <Col>fee: {transaction.data?.time}</Col>
+                            <Col>fee: {transaction.data?.payer}</Col>
 
                             </Row>
                           </Panel>
